@@ -30,11 +30,13 @@ public class Triz extends Subsystem {
 	}
 
 	public void move(double speed) {
-		motor.set(speed);
+		if (canMove(speed)) {
+			motor.set(speed);
+		}
 	}
 
-	public boolean limit() {
-		return !up.get() && motor.get() > 0 || down.get() && motor.get() < 0;
+	public boolean canMove(double speed) {
+		return !(up.get() && speed > 0 || down.get() && speed < 0);
 	}
 
 	public void initDefaultCommand() {
