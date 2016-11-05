@@ -10,10 +10,10 @@ public class Folder extends Subsystem {
     
     private VictorSP folderMotor;
     
-    public Folder (VictorSP folderMotor){
+    public Folder(VictorSP folderMotor){
     	this.folderMotor = folderMotor;
     }
-    public void Turn(double speed){
+    public void turn(double speed){
     	folderMotor.set(speed);
     }
 
