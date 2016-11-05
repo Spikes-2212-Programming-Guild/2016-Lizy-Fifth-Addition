@@ -18,10 +18,10 @@ import com.spikes2212.robot.commands.triz.MoveUp;
  * This class is the glue that binds the controls on the physical operator
  * interface to the commands and command groups that allow control of the robot.
  */
-public class OI /* gevald */ {
-	//// CREATING BUTTONS
+public class OI /* gevald */{
+	// // CREATING BUTTONS
 	// One type of button is a joystick button which is any button on a
-	//// joystick.
+	// // joystick.
 	// You create one by telling it which joystick it's on and which button
 	// number it is.
 	// Joystick stick = new Joystick(port);
@@ -31,7 +31,7 @@ public class OI /* gevald */ {
 	// by subclassing Button you can create custom triggers and bind those to
 	// commands the same as any other Button.
 
-	//// TRIGGERING COMMANDS WITH BUTTONS
+	// // TRIGGERING COMMANDS WITH BUTTONS
 	// Once you have a button, it's trivial to bind it to a button in one of
 	// three ways:
 
@@ -48,19 +48,30 @@ public class OI /* gevald */ {
 	// button.whenReleased(new ExampleCommand());
 	public final Joystick rightStick = new Joystick(0);
 
-	public final Button trizUpButton = new JoystickButton(rightStick, 3);
-	public final Button trizDownButton = new JoystickButton(rightStick, 2);
+	public final Button trizUpButton;
+	public final Button trizDownButton;
 
-	public final Button folderUpButton = new JoystickButton(rightStick, 6);
-	public final Button folderDownButton = new JoystickButton(rightStick, 7);
+	public final Button folderUpButton;
+	public final Button folderDownButton;
 
-	public final Button shootButton = new JoystickButton(rightStick, 5);
+	public final Button shootButton;
 
-	public final Button pickButton = new JoystickButton(rightStick, 4);
-	
-	public final Button turnButton = new JoystickButton(rightStick, 1);
+	public final Button pickButton;
+
+	public final Button turnButton;
 
 	public OI() {
+		trizUpButton = new JoystickButton(rightStick, 3);
+		trizDownButton = new JoystickButton(rightStick, 2);
+
+		folderUpButton = new JoystickButton(rightStick, 6);
+		folderDownButton = new JoystickButton(rightStick, 7);
+
+		shootButton = new JoystickButton(rightStick, 5);
+
+		pickButton = new JoystickButton(rightStick, 4);
+
+		turnButton = new JoystickButton(rightStick, 1);
 		trizUpButton.whileHeld(new MoveUp());
 		trizDownButton.whileHeld(new MoveDown());
 
@@ -70,9 +81,9 @@ public class OI /* gevald */ {
 		shootButton.whenPressed(new Shoot());
 
 		pickButton.whenPressed(new Load());
-		
+
 		turnButton.whileHeld(new JoystickTurn());
-		
+
 	}
 
 	public double getRightY() {

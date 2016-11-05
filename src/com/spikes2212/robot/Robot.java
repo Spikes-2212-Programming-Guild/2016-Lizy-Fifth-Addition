@@ -53,10 +53,9 @@ public class Robot extends IterativeRobot {
 		shooter = new Shooter(new CANTalon(RobotMap.CAN.SHOOTER_MOTOR_PORT));
 		folder = new Folder(new VictorSP(RobotMap.PWM.FOLDER_MOTOR_PORT), new DigitalInput(RobotMap.DIO.FOLDER_UP_PORT),new DigitalInput(RobotMap.DIO.FOLDER_DOWN_PORT));
 
-		SmartDashboard.putData("Auto mode", chooser);
 		drivetrain = new Drivetrain(leftGearbox, rightGearbox);
-		
-		oi = new OI();
+//		
+//		oi = new OI();
 		
 		System.out.println("INIT DONE");
 	}
