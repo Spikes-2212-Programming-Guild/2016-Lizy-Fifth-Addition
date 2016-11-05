@@ -7,6 +7,10 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import com.spikes2212.robot.commands.ExampleCommand;
+import com.spikes2212.robot.commands.Shoot;
+import com.spikes2212.robot.commands.fold.FoldDown;
+import com.spikes2212.robot.commands.fold.FoldUp;
+import com.spikes2212.robot.commands.load.Load;
 import com.spikes2212.robot.commands.triz.MoveDown;
 import com.spikes2212.robot.commands.triz.MoveUp;
 
@@ -43,15 +47,27 @@ public class OI /* gevald */ {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public final Joystick rightStick = new Joystick(0);
-	public final Joystick leftStick = new Joystick(1);
 
 	public final Button trizUpButton = new JoystickButton(rightStick, 3);
 	public final Button trizDownButton = new JoystickButton(rightStick, 2);
-	
+
+	public final Button folderUpButton = new JoystickButton(rightStick, 6);
+	public final Button folderDownButton = new JoystickButton(rightStick, 7);
+
+	public final Button shootButton = new JoystickButton(rightStick, 1);
+
+	public final Button pickButton = new JoystickButton(rightStick, 4);
 
 	public OI() {
 		trizUpButton.whenPressed(new MoveUp());
 		trizDownButton.whenPressed(new MoveDown());
+
+		folderUpButton.whenPressed(new FoldUp());
+		folderDownButton.whenPressed(new FoldDown());
+
+		shootButton.whenPressed(new Shoot());
+
+		pickButton.whenPressed(new Load());
 	}
 
 	public double getRightY() {
