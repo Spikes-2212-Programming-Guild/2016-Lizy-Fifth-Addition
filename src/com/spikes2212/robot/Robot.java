@@ -1,7 +1,10 @@
 
 package com.spikes2212.robot;
 
+import edu.wpi.first.wpilibj.CANTalon;
+import edu.wpi.first.wpilibj.DigitalInput;
 import edu.wpi.first.wpilibj.IterativeRobot;
+import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
@@ -48,8 +51,13 @@ public class Robot extends IterativeRobot {
 		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 
-		rightGearbox = new Gearbox(RobotMap.DRIVETRAIN_RIGHT_FRONT_PORT, RobotMap.DRIVETRAIN_RIGHT_REAR_PORT);
-		leftGearbox = new Gearbox(RobotMap.DRIVETRAIN_LEFT_FRONT_PORT, RobotMap.DRIVETRAIN_LEFT_REAR_PORT);
+		rightGearbox = new Gearbox(RobotMap.PWM.DRIVETRAIN_RIGHT_FRONT_PORT, RobotMap.PWM.DRIVETRAIN_LEFT_REAR_PORT);
+		leftGearbox = new Gearbox(RobotMap.PWM.DRIVETRAIN_LEFT_FRONT_PORT, RobotMap.PWM.DRIVETRAIN_LEFT_REAR_PORT);
+		triz = new Triz(RobotMap.DIO.TRIZ_UP_PORT, RobotMap.DIO.TRIZ_DOWN_PORT, RobotMap.PWM.TRIZ_MOTOR_PORT);
+		loader = new Loader(new DigitalInput(RobotMap.DIO.PICKER_LIMIT_PORT),new VictorSP(RobotMap.PWM.PICKER_MOTOR_PORT));
+		shooter = new Shooter(new CANTalon(RobotMap.CAN.SHOOTER_MOTOR_PORT));
+		folder = new Folder(new VictorSP(RobotMap.PWM.FOLDER_MOTOR_PORT), new DigitalInput(RobotMap.DIO.FOLDER_UP_PORT),new DigitalInput(RobotMap.DIO.FOLDER_DOWN_PORT));
+
 		SmartDashboard.putData("Auto mode", chooser);
 		drivetrain = new Drivetrain(leftGearbox, rightGearbox);
 	}
