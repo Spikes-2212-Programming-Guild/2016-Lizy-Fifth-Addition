@@ -8,9 +8,7 @@ import edu.wpi.first.wpilibj.VictorSP;
 import edu.wpi.first.wpilibj.command.Command;
 import edu.wpi.first.wpilibj.command.Scheduler;
 import edu.wpi.first.wpilibj.livewindow.LiveWindow;
-import com.spikes2212.robot.commands.ExampleCommand;
 import com.spikes2212.robot.subsystems.Drivetrain;
-import com.spikes2212.robot.subsystems.ExampleSubsystem;
 import com.spikes2212.robot.subsystems.Folder;
 import com.spikes2212.robot.subsystems.Loader;
 import com.spikes2212.robot.subsystems.Triz;
@@ -29,7 +27,6 @@ import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
  */
 public class Robot extends IterativeRobot {
 
-	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
 	public static Loader loader;
 	private Gearbox leftGearbox, rightGearbox;
@@ -47,8 +44,6 @@ public class Robot extends IterativeRobot {
 	 */
 	public void robotInit() {
 		oi = new OI();
-		chooser = new SendableChooser();
-		chooser.addDefault("Default Auto", new ExampleCommand());
 		// chooser.addObject("My Auto", new MyAutoCommand());
 
 		rightGearbox = new Gearbox(RobotMap.PWM.DRIVETRAIN_RIGHT_FRONT_PORT, RobotMap.PWM.DRIVETRAIN_LEFT_REAR_PORT);
@@ -89,7 +84,7 @@ public class Robot extends IterativeRobot {
 	public void autonomousInit() {
 		autonomousCommand = (Command) chooser.getSelected();
 
-		/*
+		/*	
 		 * String autoSelected = SmartDashboard.getString("Auto Selector",
 		 * "Default"); switch(autoSelected) { case "My Auto": autonomousCommand
 		 * = new MyAutoCommand(); break; case "Default Auto": default:

@@ -6,7 +6,6 @@ import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
-import com.spikes2212.robot.commands.ExampleCommand;
 import com.spikes2212.robot.commands.Shoot;
 import com.spikes2212.robot.commands.drivetrain.JoystickTurn;
 import com.spikes2212.robot.commands.fold.FoldDown;
