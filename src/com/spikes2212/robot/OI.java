@@ -2,10 +2,13 @@ package com.spikes2212.robot;
 
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+import edu.wpi.first.wpilibj.buttons.JoystickButton;
 
 import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import com.spikes2212.robot.commands.ExampleCommand;
+import com.spikes2212.robot.commands.triz.MoveDown;
+import com.spikes2212.robot.commands.triz.MoveUp;
 
 /**
  * This class is the glue that binds the controls on the physical operator
@@ -40,6 +43,16 @@ public class OI /* gevald */ {
 	// until it is finished as determined by it's isFinished method.
 	// button.whenReleased(new ExampleCommand());
 	public final Joystick rightStick = new Joystick(0);
+	public final Joystick leftStick = new Joystick(1);
+
+	public final Button trizUpButton = new JoystickButton(rightStick, 3);
+	public final Button trizDownButton = new JoystickButton(rightStick, 2);
+	
+
+	public OI() {
+		trizUpButton.whenPressed(new MoveUp());
+		trizDownButton.whenPressed(new MoveDown());
+	}
 
 	public double getRightY() {
 		return rightStick.getY();
