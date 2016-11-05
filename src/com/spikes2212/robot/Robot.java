@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.spikes2212.robot.commands.ExampleCommand;
 import com.spikes2212.robot.subsystems.Drivetrain;
 import com.spikes2212.robot.subsystems.ExampleSubsystem;
+import com.spikes2212.robot.subsystems.Triz;
 import com.spikes2212.utils.Gearbox;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -27,6 +28,7 @@ public class Robot extends IterativeRobot {
 
 	private Gearbox leftGearbox, rightGearbox;
 	public static Drivetrain drivetrain;
+	public static Triz triz;
 
 	Command autonomousCommand;
 	SendableChooser chooser;
@@ -45,6 +47,7 @@ public class Robot extends IterativeRobot {
 		leftGearbox = new Gearbox(RobotMap.DRIVETRAIN_LEFT_FRONT_PORT, RobotMap.DRIVETRAIN_LEFT_REAR_PORT);
 		SmartDashboard.putData("Auto mode", chooser);
 		drivetrain = new Drivetrain(leftGearbox, rightGearbox);
+		triz = new Triz(RobotMap.TRIZ_UP_PORT, RobotMap.TRIZ_DOWN_PORT, RobotMap.TRIZ_MOTOR_PORT);
 	}
 
 	/**
