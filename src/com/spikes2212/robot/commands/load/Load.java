@@ -1,4 +1,4 @@
-package com.spikes2212.robot.commands;
+package com.spikes2212.robot.commands.load;
 
 import com.spikes2212.robot.Robot;
 import com.spikes2212.robot.subsystems.Loader;
