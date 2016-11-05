@@ -9,6 +9,7 @@ import com.spikes2212.robot.commands.ExampleCommand;
 import com.spikes2212.robot.subsystems.Drivetrain;
 import com.spikes2212.robot.subsystems.ExampleSubsystem;
 import com.spikes2212.robot.subsystems.Loader;
+import com.spikes2212.robot.subsystems.Shooter;
 import com.spikes2212.utils.Gearbox;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -28,6 +29,7 @@ public class Robot extends IterativeRobot {
 	public static Loader loader;
 	private Gearbox leftGearbox, rightGearbox;
 	public static Drivetrain drivetrain;
+	public static Shooter shooter;
 
 	Command autonomousCommand;
 	SendableChooser chooser;
