@@ -1,4 +1,4 @@
-package com.spikes2212.robot.commands;
+package com.spikes2212.robot.commands.load;
 
 import com.spikes2212.robot.Robot;
 import com.spikes2212.robot.subsystems.Loader;
@@ -8,10 +8,10 @@ import edu.wpi.first.wpilibj.command.Command;
 /**
  *
  */
-public class Load extends Command {
+public class PassToShooter extends Command {
 	public final static double PICK_SPEED = 0.7;
 
-	public Load() {
+	public PassToShooter() {
 		// Use requires() here to declare subsystem dependencies
 		// eg. requires(chassis);
 		requires(Robot.loader);
@@ -28,7 +28,7 @@ public class Load extends Command {
 
 	// Make this return true when this Command no longer needs to run execute()
 	protected boolean isFinished() {
-		return Robot.loader.isLoaded() || isTimedOut();
+		return !Robot.loader.isLoaded() || isTimedOut();
 	}
 
 	// Called once after isFinished returns true
