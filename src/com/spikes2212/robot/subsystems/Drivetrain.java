@@ -1,5 +1,6 @@
 package com.spikes2212.robot.subsystems;
 
+import com.spikes2212.robot.commands.drivetrain.JoystickMoveFoward;
 import com.spikes2212.utils.Gearbox;
 
 import edu.wpi.first.wpilibj.command.Subsystem;
@@ -28,7 +29,7 @@ public class Drivetrain extends Subsystem {
 	}
 
 	public void initDefaultCommand() {
-
+		setDefaultCommand(new JoystickMoveFoward());
 	}
 
 }

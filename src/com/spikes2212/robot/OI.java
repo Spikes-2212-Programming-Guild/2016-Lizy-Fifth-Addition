@@ -8,6 +8,7 @@ import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
 
 import com.spikes2212.robot.commands.ExampleCommand;
 import com.spikes2212.robot.commands.Shoot;
+import com.spikes2212.robot.commands.drivetrain.JoystickTurn;
 import com.spikes2212.robot.commands.fold.FoldDown;
 import com.spikes2212.robot.commands.fold.FoldUp;
 import com.spikes2212.robot.commands.load.Load;
@@ -54,20 +55,25 @@ public class OI /* gevald */ {
 	public final Button folderUpButton = new JoystickButton(rightStick, 6);
 	public final Button folderDownButton = new JoystickButton(rightStick, 7);
 
-	public final Button shootButton = new JoystickButton(rightStick, 1);
+	public final Button shootButton = new JoystickButton(rightStick, 5);
 
 	public final Button pickButton = new JoystickButton(rightStick, 4);
+	
+	public final Button turnButton = new JoystickButton(rightStick, 1);
 
 	public OI() {
-		trizUpButton.whenPressed(new MoveUp());
-		trizDownButton.whenPressed(new MoveDown());
+		trizUpButton.whileHeld(new MoveUp());
+		trizDownButton.whileHeld(new MoveDown());
 
-		folderUpButton.whenPressed(new FoldUp());
-		folderDownButton.whenPressed(new FoldDown());
+		folderUpButton.whileHeld(new FoldUp());
+		folderDownButton.whileHeld(new FoldDown());
 
 		shootButton.whenPressed(new Shoot());
 
 		pickButton.whenPressed(new Load());
+		
+		turnButton.whileHeld(new JoystickTurn());
+		
 	}
 
 	public double getRightY() {
