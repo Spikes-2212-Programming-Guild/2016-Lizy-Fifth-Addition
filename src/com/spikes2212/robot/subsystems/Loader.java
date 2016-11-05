@@ -21,10 +21,7 @@ public class Loader extends Subsystem {
 	}
 
 	public void pick(double speed) {
-		while (!isLoaded()) {
-			picker.set(speed);
-		}
-			picker.set(0);
+		picker.set(speed);
 	}
 
 	public void initDefaultCommand() {
