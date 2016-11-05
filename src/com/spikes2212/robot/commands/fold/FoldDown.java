@@ -8,7 +8,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class FoldDown extends Command {
-	public final static double DOWN_SPEED = -0.7;
+	public final static double DOWN_SPEED = -0.5;
     public FoldDown() {
     	requires(Robot.folder);
         // Use requires() here to declare subsystem dependencies

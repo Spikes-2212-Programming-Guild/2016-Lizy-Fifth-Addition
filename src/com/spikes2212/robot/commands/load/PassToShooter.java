@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class PassToShooter extends Command {
-	public final static double PICK_SPEED = 0.7;
+	public final static double PICK_SPEED = 0.5;
 
 	public PassToShooter() {
 		// Use requires() here to declare subsystem dependencies

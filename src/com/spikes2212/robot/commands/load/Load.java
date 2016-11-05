@@ -9,7 +9,7 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class Load extends Command {
-	public final static double PICK_SPEED = 0.7;
+	public final static double PICK_SPEED = 0.5;
 
 	public Load() {
 		// Use requires() here to declare subsystem dependencies
