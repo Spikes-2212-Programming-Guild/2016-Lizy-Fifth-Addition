@@ -1,6 +1,10 @@
 package com.spikes2212.robot;
 
+import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.buttons.Button;
+
+import javax.swing.plaf.basic.BasicInternalFrameTitlePane.MoveAction;
+
 import com.spikes2212.robot.commands.ExampleCommand;
 
 /**
@@ -34,5 +38,14 @@ public class OI /*gevald*/ {
     // Start the command when the button is released  and let it run the command
     // until it is finished as determined by it's isFinished method.
     // button.whenReleased(new ExampleCommand());
+	public final Joystick rightStick = new Joystick(0);
+	
+	public double getRightY(){
+		return rightStick.getY();
+	}
+	public double getRightX(){
+		return rightStick.getX();
+	}
 }
+
 
