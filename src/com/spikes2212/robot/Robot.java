@@ -8,6 +8,7 @@ import edu.wpi.first.wpilibj.livewindow.LiveWindow;
 import com.spikes2212.robot.commands.ExampleCommand;
 import com.spikes2212.robot.subsystems.Drivetrain;
 import com.spikes2212.robot.subsystems.ExampleSubsystem;
+import com.spikes2212.robot.subsystems.Loader;
 import com.spikes2212.utils.Gearbox;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
@@ -24,7 +25,7 @@ public class Robot extends IterativeRobot {
 
 	public static final ExampleSubsystem exampleSubsystem = new ExampleSubsystem();
 	public static OI oi;
-
+	public static Loader loader;
 	private Gearbox leftGearbox, rightGearbox;
 	public static Drivetrain drivetrain;
 
