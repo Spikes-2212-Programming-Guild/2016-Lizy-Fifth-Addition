@@ -54,8 +54,8 @@ public class Robot extends IterativeRobot {
 		folder = new Folder(new VictorSP(RobotMap.PWM.FOLDER_MOTOR_PORT), new DigitalInput(RobotMap.DIO.FOLDER_UP_PORT),new DigitalInput(RobotMap.DIO.FOLDER_DOWN_PORT));
 
 		drivetrain = new Drivetrain(leftGearbox, rightGearbox);
-//		
-//		oi = new OI();
+		
+		oi = new OI();
 		
 		System.out.println("INIT DONE");
 	}
