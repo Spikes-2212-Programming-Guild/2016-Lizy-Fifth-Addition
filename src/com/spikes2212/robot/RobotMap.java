@@ -36,4 +36,9 @@ public class RobotMap {
 		public static final int PICKER_LIMIT_PORT = 0;
 	}
 
+	public interface Speed {
+		public static final double FOLDER_UP_SPEED = 0.5;
+		public static final double FOLDER_DOWN_SPEED = -0.5;
+	}
+
 }

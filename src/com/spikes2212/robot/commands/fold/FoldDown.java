@@ -1,6 +1,7 @@
 package com.spikes2212.robot.commands.fold;
 
 import com.spikes2212.robot.Robot;
+import com.spikes2212.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -8,7 +9,6 @@ import edu.wpi.first.wpilibj.command.Command;
  *
  */
 public class FoldDown extends Command {
-	public final static double DOWN_SPEED = -0.5;
     public FoldDown() {
     	requires(Robot.folder);
         // Use requires() here to declare subsystem dependencies
@@ -21,13 +21,13 @@ public class FoldDown extends Command {
 
     // Called repeatedly when this Command is scheduled to run
     protected void execute() {
-    	Robot.folder.turn(DOWN_SPEED);
+    	Robot.folder.turn(RobotMap.Speed.FOLDER_DOWN_SPEED);
     	
     }
 
     // Make this return true when this Command no longer needs to run execute()
     protected boolean isFinished() {
-        return Robot.folder.canMove(DOWN_SPEED)||isTimedOut();
+        return !Robot.folder.canMove(RobotMap.Speed.FOLDER_DOWN_SPEED)||isTimedOut();
     }
 
     // Called once after isFinished returns true
