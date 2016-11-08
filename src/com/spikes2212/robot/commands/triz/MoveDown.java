@@ -1,6 +1,7 @@
 package com.spikes2212.robot.commands.triz;
 
 import com.spikes2212.robot.Robot;
+import com.spikes2212.robot.RobotMap;
 
 import edu.wpi.first.wpilibj.command.Command;
 
@@ -20,7 +21,7 @@ public class MoveDown extends Command {
 
 	// Called repeatedly when this Command is scheduled to run
 	protected void execute() {
-		Robot.triz.move(-0.5);
+		Robot.triz.move(RobotMap.Speed.TRIZ_DOWN_SPEED);
 	}
 
 	// Make this return true when this Command no longer needs to run execute()
